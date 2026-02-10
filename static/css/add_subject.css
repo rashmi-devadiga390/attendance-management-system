@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: transparent;
+    color: #222;
+}
+
+.form-container {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 0;              
+    background: none;        
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.form-header h2 {
+    font-size: 26px;
+    margin-bottom: 4px;
+}
+
+.hint {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.subject-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full {
+    grid-column: span 2;
+}
+
+label {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="number"] {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 4px;
+    font-size: 15px;
+    background: transparent;
+    transition: 0.25s;
+}
+
+input:focus {
+    outline: none;
+    border-bottom-color: #7a72ff;
+}
+
+.days {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.days input {
+    display: none;
+}
+
+.day-pill {
+    padding: 7px 15px;
+    border-radius: 20px;
+    background: #f1f1f1;
+    cursor: pointer;
+    transition: 0.25s;
+    font-size: 13px;
+}
+
+.day-pill:hover {
+    background: #e6e6e6;
+}
+
+.days input:checked + .day-pill {
+    background: #7a72ff;
+    color: white;
+}
+
+.submit-btn {
+    grid-column: span 2;
+    margin-top: 10px;
+
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    background: #7a72ff;
+    color: white;
+
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.submit-btn:hover {
+    background: #6a63f5;
+}
+
+.small-text {
+    font-size: 12px;
+    color: #888;
+    margin-top: 6px;
+}

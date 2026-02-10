@@ -1,0 +1,71 @@
+.page-title{
+    margin-bottom:25px;
+}
+
+.summary-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:20px;
+    margin-bottom:35px;
+}
+
+.summary-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+.summary-card span{
+    font-size:14px;
+    color:#666;
+}
+
+.summary-card h3{
+    margin-top:8px;
+    font-size:22px;
+}
+
+.good{ color:#28a745; }
+.bad{ color:#dc3545; }
+
+.progress-section{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.subject-progress{
+    background:#fff;
+    padding:18px 20px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+.subject-progress .top{
+    display:flex;
+    justify-content:space-between;
+    font-size:16px;
+}
+
+.subject-progress .sub{
+    font-size:13px;
+    color:#555;
+    margin:6px 0 10px;
+}
+
+.bar{
+    height:10px;
+    background:#eee;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    border-radius:20px;
+}
+
+.green{ background:#28a745; }
+.orange{ background:#f39c12; }
+.red{ background:#dc3545; }

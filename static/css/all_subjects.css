@@ -1,0 +1,131 @@
+.page-header {
+    margin-bottom: 25px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 900px;
+}
+
+.subject-card {
+    background: white;
+    padding: 14px 16px;   
+    border-radius: 10px;
+    display: flex;        
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: 0.2s;
+}
+
+.subject-card:hover {
+    transform: translateY(-3px);
+}
+
+.mini-circle {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+    background: conic-gradient(#7a72ff 0deg, #eee 0deg);
+    transition: 0.8s ease;
+}
+
+.mini-circle span {
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-top h3 {
+    font-size: 18px;
+}
+
+.percent {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.stats {
+    margin: 10px 0;
+    font-size: 14px;
+    color: gray;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+    flex: 1;
+    text-align: center;
+    padding: 6px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-decoration: none;
+    color: white;
+}
+
+.edit-btn {
+    background: #2196F3;
+}
+
+.delete-btn {
+    background: #f44336;
+}
+
+.clickable{
+    text-decoration:none;
+    color:inherit;
+}
+
+.mini-circle{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    margin:10px auto 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.detail-card{
+    background:white;
+    width:350px;
+    padding:35px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.big-circle{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    margin:20px auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    font-weight:bold;
+}
