@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="subject-container">
+
+    <h2 class="page-title">Edit Subject</h2>
+
+    <form method="POST" class="subject-form">
+        <div class="form-group">
+            <label>Subject Name</label>
+            <input
+                type="text"
+                name="name"
+                value="{{ subject.name }}"
+                required
+            >
+        </div>
+        <p class="page-subtitle">You can update subject details anytime</p>
+
+        <div class="form-group">
+            <label>Class Days</label>
+
+            {% set selected_days = subject.days.split(",") if subject.days else [] %}
+
+            <div class="day-selector">
+                {% for d in ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"] %}
+                    <input
+                        type="checkbox"
+                        id="{{ d }}"
+                        name="days"
+                        value="{{ d }}"
+                        {% if d in selected_days %}checked{% endif %}
+                    >
+                    <label for="{{ d }}" class="day-pill">{{ d }}</label>
+                {% endfor %}
+            </div>
+            <small class="hint">You can edit class days anytime</small>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Already Present</label>
+                <input type="number" name="present" value="{{ subject.present }}">
+            </div>
+
+            <div class="form-group">
+                <label>Already Absent</label>
+                <input type="number" name="absent" value="{{ subject.absent }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Attendance Goal (%)</label>
+            <input type="number" name="goal" min="1" max="100" value="{{ subject.goal }}">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-primary">
+                ✓ Update Subject
+            </button>
+
+            <a href="{{ url_for('subject.subjects') }}" class="btn-secondary">
+    ← Back
+</a>
+
+        </div>
+    </form>
+</div>
+
+{% endblock %}

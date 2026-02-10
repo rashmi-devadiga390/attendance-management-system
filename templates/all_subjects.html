@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/all_subjects.css') }}">
+
+<div class="page-header">
+    <h2>All Subjects</h2>
+</div>
+
+<div class="cards-container">
+
+    {% for s in subjects %}
+    {% set total = s.present + s.absent %}
+    {% set percent = (s.present / total * 100)|round(0) if total > 0 else 0 %}
+
+    <a href="/subject/{{ s.id }}" class="subject-card clickable">
+        <div class="card-info">
+            <h3>{{ s.name }}</h3>
+            <p class="stats">Attendance: {{ s.present }}/{{ total }}</p>
+        </div>
+
+        <div class="mini-circle" data-percent="{{ percent }}">
+            <span>{{ percent }}%</span>
+        </div>
+    </a>
+
+    {% endfor %}
+
+</div>
+
+<script src="{{ url_for('static', filename='js/all_subjects.js') }}"></script>
+
+{% endblock %}

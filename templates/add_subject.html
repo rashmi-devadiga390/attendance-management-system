@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/add_subject.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+    <div class="form-header">
+        <h2>Add Subject</h2>
+        <p class="hint">Better to keep a short name</p>
+    </div>
+
+    <form method="POST" action="/add" class="subject-form">
+        <div class="form-group full">
+            <label>Subject Name</label>
+            <input type="text" name="name" placeholder="Enter subject name" required>
+        </div>
+
+        <div class="form-group full">
+            <label>Class Days</label>
+            <div class="days">
+                <input type="checkbox" id="mon" name="days" value="Monday">
+                <label for="mon" class="day-pill">Mon</label>
+
+                <input type="checkbox" id="tue" name="days" value="Tuesday">
+                <label for="tue" class="day-pill">Tue</label>
+
+                <input type="checkbox" id="wed" name="days" value="Wednesday">
+                <label for="wed" class="day-pill">Wed</label>
+
+                <input type="checkbox" id="thu" name="days" value="Thursday">
+                <label for="thu" class="day-pill">Thu</label>
+
+                <input type="checkbox" id="fri" name="days" value="Friday">
+                <label for="fri" class="day-pill">Fri</label>
+
+                <input type="checkbox" id="sat" name="days" value="Saturday">
+                <label for="sat" class="day-pill">Sat</label>
+
+                <input type="checkbox" id="sun" name="days" value="Sunday">
+                <label for="sun" class="day-pill">Sun</label>
+            </div>
+
+            <p class="small-text">You can edit class days anytime</p>
+        </div>
+
+        <div class="form-group">
+            <label>Already Present</label>
+            <input type="number" name="present" value="0" min="0">
+        </div>
+
+        <div class="form-group">
+            <label>Already Absent</label>
+            <input type="number" name="absent" value="0" min="0">
+        </div>
+
+        <div class="form-group full">
+            <label>Attendance Goal (%)</label>
+            <input type="number" name="goal" value="75" min="1" max="100">
+        </div>
+
+        <button type="submit" class="submit-btn">
+            + Add Subject
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

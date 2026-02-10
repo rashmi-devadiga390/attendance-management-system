@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_subject.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/manage_subjects.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_subject.css') }}">
+</head>
+
+<body>
+<div class="hamburger" onclick="toggleSidebar()">☰</div>
+<div class="container">
+    <div class="sidebar" id="sidebar">
+        <h2 class="logo">Attendance</h2>
+            <a href="/" class="nav {% if request.path == '/' %}active{% endif %}">
+            Today
+        </a>
+
+        <a href="/overall" class="nav {% if request.path == '/overall' %}active{% endif %}">
+            Overall Attendance
+        </a>
+
+        <a href="/subjects" class="nav {% if request.path == '/subjects' %}active{% endif %}">
+            Manage Subjects
+        </a>
+
+        <a href="/all" class="nav {% if request.path == '/all' %}active{% endif %}">
+            All Subjects
+        </a>
+
+        <a href="/add" class="nav add-btn {% if request.path == '/add' %}active{% endif %}">
+            + Add Subject
+        </a>
+    </div>
+
+    <div class="main">
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+
+<script>
+function toggleSidebar(){
+    document.getElementById("sidebar").classList.toggle("hide");
+}
+</script>
+</body>
+</html>

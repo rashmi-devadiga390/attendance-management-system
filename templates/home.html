@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2 class="page-title">Today Attendance</h2>
+
+<div class="subjects-container">
+
+{% for s in subjects %}
+
+<div class="subject-card">
+    <div class="subject-info">
+        <h3>{{ s.name }}</h3>
+        <p>Attendance: {{ s.present }}/{{ s.total }}</p>
+
+        <div class="btn-group">
+            <a href="/mark/{{s.id}}/present" class="btn present">Present</a>
+            <a href="/mark/{{s.id}}/absent" class="btn absent">Absent</a>
+            <a href="#" class="btn no">No Class</a>
+        </div>
+    </div>
+
+    <div class="today-progress" data-percent="{{ s.percentage }}">
+        <svg width="110" height="110">
+            <circle class="bg" cx="55" cy="55" r="45"></circle>
+            <circle class="progress" cx="55" cy="55" r="45"></circle>
+        </svg>
+
+        <div class="percent-text">{{ s.percentage }}%</div>
+    </div>
+</div>
+
+{% endfor %}
+</div>
+
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+
+{% endblock %}

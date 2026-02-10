@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/subject_detail.css') }}">
+
+<div class="detail-wrapper">
+    <div class="detail-card">
+
+        <a href="/all" class="back-btn">Back</a>
+
+        <h2 class="subject-title">{{ subject.name }}</h2>
+
+        <div class="circle-progress" data-percent="{{ percent }}">
+            <svg width="180" height="180">
+                <circle class="bg" cx="90" cy="90" r="75"></circle>
+                <circle class="progress" cx="90" cy="90" r="75"></circle>
+            </svg>
+            <div class="percent-text">{{ percent }}%</div>
+        </div>
+
+        <div class="stats-box">
+            <p>Present : {{ subject.present }}</p>
+            <p>Absent : {{ subject.absent }}</p>
+            <p>Total : {{ total }}</p>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/subject_detail.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/manage_subjects.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="manage-container">
+    <div class="page-header">
+        <h2>Manage Subjects</h2>
+    </div>
+
+    {% if subjects %}
+
+        {% for s in subjects %}
+        <div class="manage-row">
+            <div class="subject-info">
+                <h3>{{ s.name }}</h3>
+
+                {% set total = s.present + s.absent %}
+
+                <p class="sub-text">
+                    Present: {{ s.present }} | Total: {{ total }}
+                </p>
+            </div>
+
+            <div class="actions">
+                <a href="/edit/{{ s.id }}" class="icon-btn edit">Edit</a>
+                <a href="/delete/{{ s.id }}" class="icon-btn delete">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+
+    {% else %}
+
+        <div class="empty-state">
+            <p>You haven't added any subjects yet!</p>
+            <p>Click + to add your first subject.</p>
+        </div>
+
+    {% endif %}
+</div>
+
+<a href="/add" class="fab">+</a>
+
+{% endblock %}

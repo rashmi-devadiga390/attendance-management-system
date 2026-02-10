@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+<h2 class="page-title">Overall Attendance</h2>
+
+<div class="summary-grid">
+    <div class="summary-card">
+        <span>Total Subjects</span>
+        <h3>{{ summary.total_subjects }}</h3>
+    </div>
+
+    <div class="summary-card">
+        <span>Total Classes</span>
+        <h3>{{ summary.total_classes }}</h3>
+    </div>
+
+    <div class="summary-card">
+        <span>Overall %</span>
+        <h3>{{ summary.overall_percent }}%</h3>
+    </div>
+
+    <div class="summary-card">
+        <span>Goal Status</span>
+        <h3 class="{{ 'good' if summary.status=='On Track' else 'bad' }}">
+            {{ summary.status }}
+        </h3>
+    </div>
+
+    <div class="summary-card">
+        <span>Can Bunk</span>
+        <h3>{{ summary.bunk }}</h3>
+    </div>
+
+    <div class="summary-card">
+        <span>Need to Attend</span>
+        <h3>{{ summary.attend }}</h3>
+    </div>
+</div>
+
+<div class="progress-section">
+
+{% for s in subjects %}
+
+    {% set percent = s.percentage | default(0) | replace('%','') | int %}
+
+    <div class="subject-progress">
+
+        <div class="top">
+            <b>{{ s.name }}</b>
+            <span>{{ percent }}%</span>
+        </div>
+
+        <p class="sub">
+            Present: {{ s.present }} |
+            Absent: {{ s.absent }} |
+            Total: {{ s.present + s.absent }}
+        </p>
+
+        <div class="bar">
+            <div class="fill
+                {% if percent >= 75 %}green
+                {% elif percent >= 50 %}orange
+                {% else %}red{% endif %}"
+                style="width: {{ percent }}%;">
+            </div>
+        </div>
+    </div>
+
+{% endfor %}
+
+</div>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+{% endblock %}

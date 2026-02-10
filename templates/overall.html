@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/overall.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="overall-container">
+    <h2>Overall Attendance</h2>
+
+    {% set total = summary.present + summary.absent %}
+
+    {% if total == 0 %}
+        {% set percent = 0 %}
+    {% else %}
+        {% set percent = ((summary.present / total) * 100) | round(0) %}
+    {% endif %}
+
+    <div class="big-circle">
+        {{ percent }}%
+    </div>
+
+    <div class="stats">
+        <div class="stat-card green">
+            <h3>{{ summary.present }}</h3>
+            <p>Present</p>
+        </div>
+
+        <div class="stat-card red">
+            <h3>{{ summary.absent }}</h3>
+            <p>Absent</p>
+        </div>
+
+        <div class="stat-card purple">
+            <h3>{{ total }}</h3>
+            <p>Total Classes</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
